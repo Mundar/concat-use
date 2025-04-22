@@ -1,0 +1,22 @@
+[package]
+name = "concat-use"
+version = "0.1.0"
+edition = "2021"
+authors = ["Thomas Mundar <thomas@mundar.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Mundar/concat-use"
+keywords = ["use", "macro", "dependencies", "documentation", "rustdoc"]
+categories = ["development-tools"]
+#rust-version = "1.67"	# Haven't determined yet. This is copied from another crate.
+description = "A macro that combines use lines for doctests"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+use-lines = {version = "0.1.0", path = "../use-lines"}
+quote = "1.0.37"
+
+[dev-dependencies]
+concat-use-test = {version = "0.1.0", path = "../concat-use-test"}

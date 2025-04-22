@@ -1,0 +1,19 @@
+[package]
+name = "use-lines"
+version = "0.1.0"
+edition = "2021"
+authors = ["Thomas Mundar <thomas@mundar.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Mundar/concat-use"
+keywords = ["use", "build", "dependencies", "documentation", "rustdoc"]
+categories = ["development-tools::build-utils"]
+#rust-version = "1.67"	# Haven't determined yet. This is copied from another crate.
+description = "A structure that combines use lines for doctests"
+
+[dependencies]
+thiserror = "2.0.3"
+
+[dev-dependencies]
+concat-use = {version = "0.1.0", path = "../concat-use"}
+concat-use-test = {version = "0.1.0", path = "../concat-use-test"}

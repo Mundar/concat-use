@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "concat-use",
+    "concat-use-test",
+    "use-lines",
+]
+resolver = "2"

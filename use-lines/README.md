@@ -1,4 +1,4 @@
-# UseLines structure and concat-use macro
+# Use declarations structure (`UseLines`)
 
 `UseLines` is a structure that outputs a string of `use` declarations. It
 is intended to be used to generate `use` lines for documentation tests
@@ -8,9 +8,15 @@ generated in a build.rs file.
 
 ```rust
 use use_lines::{DisplayFormat, UseLines};
+use std::{
+    env,
+    fs::{File, read_to_string},
+    io::{BufWriter, Write},
+    path::Path,
+};
 
 let mut use_lines = UseLines::default();
-use_lines.add("use std::env;");
+use_lines.add("std::env");
 use_lines.add("std::fs::File");
 use_lines.add("std::fs::read_to_string");
 use_lines.add("std::io");
@@ -49,6 +55,3 @@ r#"    /// use concat_use::concat_use;
 assert_eq!(use_lines.clone().with_format(DisplayFormat::Hidden).to_string(),
 "# use concat_use::concat_use; use proptest::prelude::*; use std::{env, fs::{File, read_to_string}, io::{self, BufWriter, Read, Seek, SeekFrom, Write}, path::Path}; use use_lines::UseLines;");
 ```
-
-The `concat-use` macro combines use declarations and outputs a static
-string.
